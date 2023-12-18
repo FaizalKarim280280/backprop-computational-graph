@@ -32,6 +32,7 @@ ENV/
 
 # Jupyter Notebook specific
 .ipynb_checkpoints/
+*.ipynb
 
 # Ignore the "__pycache__" directory
 __pycache__/
