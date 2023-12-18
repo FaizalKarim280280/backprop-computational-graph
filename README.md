@@ -5,13 +5,11 @@ This is a simple implementation of backpropagation for calculation of gradients 
 ## Example
 
 1. Let's create an expression \
-$
-    a = -2, b = 5, c = 10 \\ 
-    d = a * b \\
-    e = c + d \\
-    f = e / c \\
-    g = f - d ^ 2 \\ 
-$
+$a = -2, b = 5, c = 10$ \
+$d = a * b$ \
+$e = c + d$ \
+$f = e / c$ \
+$g = f - d ^ 2$ 
 
 2. Code it up using our Tensor class
 
