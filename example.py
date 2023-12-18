@@ -1,5 +1,6 @@
 from tensor import Tensor
 from plot_graph import create_computational_graph
+from activations import Sigmoid
 
 def main():
     a = Tensor(-2.0)
@@ -9,6 +10,7 @@ def main():
     e = c + d
     f = e / c
     g = f - (d ** 2)
+    g = Sigmoid()(g)
     
     print(g)
     
