@@ -19,7 +19,7 @@ def create_computational_graph(root, name, render=False):
     
     for n in nodes:
         graph.node(name=str(id(n)), 
-                   label = f"value={n.value:.4f} | grad={n.grad:.4f}", 
+                   label = f"value={n.value:.5f} | grad={n.grad:.5f}", 
                    shape='record', 
                    style='filled', 
                    fillcolor='lightgreen' if n.leaf else 'lightpink')

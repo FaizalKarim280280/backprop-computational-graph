@@ -1,7 +1,12 @@
 class Tensor:
     
-    def __init__(self, value, operand=(), operation=None, leaf=True):
-        self.value = float(value)
+    def __init__(self, 
+                 value, 
+                 operand=(), 
+                 operation=None, 
+                 leaf=True):
+        
+        self.value = value
         self.grad = 0
         self.operand = operand
         self.operation = operation
@@ -49,13 +54,13 @@ class Tensor:
         return out
     
     def __pow__(self, power):
-        out = Tensor(self.value **power, operand=(self, ), operation=f'**{power}', leaf=False)
+        out = Tensor(self.value**power, operand=(self, ), operation=f'**{power}', leaf=False)
         def pow_grad_fxn():
-            self.grad += power * self.value ** (power - 1)
+            self.grad += power * (self.value ** (power - 1))
         
         out.grad_fxn = pow_grad_fxn
         return out    
-        
+            
     def backward(self):
         sorted, visited = [], set()
         
@@ -70,11 +75,15 @@ class Tensor:
         for node in reversed(sorted):
             node.gradients_calculated = True
             node.grad_fxn()
-    
-
-def main():
-    pass
-    
-    
-if __name__ == "__main__":
-    main()
+            
+    def reset_grads(self, ):
+        visited = set()
+        
+        def dfs(node):
+            if node not in visited:
+                visited.add(node)
+                node.grad = 0.0
+                for v in node.operand:
+                    dfs(v) 
+                    
+        dfs(self)   
