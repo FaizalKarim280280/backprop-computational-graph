@@ -34,7 +34,7 @@ from plot_graph import create_computational_graph
 create_computational_graph(g, name='forward', render=True)
 ```
 
-<img src='./plots/forward.png/'>
+<img src='./plots/forward.png' width="80%">
 
 
 4. Calculate the gradients
@@ -44,7 +44,7 @@ g.backward()
 create_computational_graph(g, name='backward', render=True)
 ```
 
-<img src='./plots/backward.png/'>
+<img src='./plots/backward.png' width="80%">
 
 
 ## References
