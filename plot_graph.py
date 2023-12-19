@@ -36,4 +36,4 @@ def create_computational_graph(root, name, render=False):
         graph.render(os.path.join('plots', name), cleanup=True)
     else:
         return graph
-    
+
