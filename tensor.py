@@ -4,7 +4,8 @@ class Tensor:
                  value, 
                  operand=(), 
                  operation=None, 
-                 leaf=True):
+                 leaf=True,
+                 name=None):
         
         self.value = value
         self.grad = 0
@@ -13,6 +14,7 @@ class Tensor:
         self.grad_fxn = lambda: None
         self.gradients_calculated = False
         self.leaf = leaf
+        self.name = name
     
     def __repr__(self):
         return f"Tensor(value={self.value})"
